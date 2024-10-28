@@ -1,6 +1,6 @@
 import React from 'react'
 import Sidebar from '../partials/Sidebar'
-import Topnav from '../partials/topnav'
+import Topnav from './Topnav'
 
 function Home() {
     document.title = "SCSDB | Home"
