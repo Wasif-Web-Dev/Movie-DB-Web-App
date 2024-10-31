@@ -10,9 +10,9 @@ function topnav() {
     const getSearches = async () => {
         try {
             const { data } = await axios.get(`/search/multi?query=${query}`)
-            console.log(data)
+            // console.log(data)
             setsearches(data.results)
-        } catch (error) {   
+        } catch (error) {
             console.log("Error :", error)
         }
     }
@@ -32,7 +32,7 @@ function topnav() {
             <input onChange={(e) => setquery(e.target.value)} value={query} className='w-[50%] outline-none border-none bg-transparent text-zinc-300' type="text" placeholder='Search anything' />
             {query.length > 0 && <i onClick={() => setquery("")} className="cursor-pointer text-3xl text-zinc-300 ri-close-line"></i>}
 
-            <div className='rounded-lg max-h-[50vh] overflow-auto bg-zinc-200 w-[50%]  absolute top-[90%]'>
+            <div className='rounded-lg max-h-[50vh] overflow-auto bg-zinc-200 w-[40%]  absolute top-[90%]'>
                 {searches.map((e, i) => (
                     <Link className='my-5 hover:text-black hover:font-semibold bg-zinc-200 text-zinc-600 flex justify-start items-center w-[100%] h-[10vh] p-12 border-b-2 border-zinc-100'>
                         <img className='mr-10 w-[10vh] h-[10vh] object-cover rounded' src={

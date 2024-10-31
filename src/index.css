@@ -23,3 +23,18 @@
     /* cursor:grabbing; */
 
 }
+
+
+
+
+select{
+    background: #101010;
+    color: #F4F4F5;
+    width: 250px;
+    outline: none;
+    padding: 0.50rem;
+    font-size: 1.1rem;
+    box-shadow: 0 1px 4px rgb(146 161 176 / 15%);
+    cursor: pointer;
+}
+
