@@ -62,7 +62,7 @@ getTrending()
         <div className='  w-screen h-screen bg-[#1E1D23]'>
             <div className='w-full flex items-center justify-between px-[3%]'>
 
-                <h1 className='text-2xl font-semibold text-zinc-400'> <i onClick={() => navigate(-1)} className="hover:text-[#6952ff] cursor-pointer ri-arrow-left-fill"></i> popular</h1>
+                <h1 className='text-2xl font-semibold text-zinc-400'> <i onClick={() => navigate(-1)} className="hover:text-[#6952ff] cursor-pointer ri-arrow-left-fill"></i> popular </h1>
                 <div className='w-[90%] flex items-center '>
 
                     <Topnav />

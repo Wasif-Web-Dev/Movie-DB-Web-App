@@ -7,24 +7,24 @@ import axios from '../utils/axios'
 import InfiniteScroll from 'react-infinite-scroll-component'
 import Topnav from '../partials/Topnav'
 
-function Movie() {
+const People = () => {
 
 
-    document.title = "SCSDB | Movie"
+    document.title = "SCSDB | Person"
 
-    const [category, setCategory] = useState("now_playing")
-    const [movie, setmovie] = useState([])
+    const [category, setCategory] = useState("popular")
+    const [person, setperson] = useState([])
     const [page, setPage] = useState(1)
     const [hasMore, sethasMore] = useState(true)
 
-    const getMovie = async () => {
+    const getTrending = async () => {
         try {
-            const { data } = await axios.get(`/movie/${category}?page=${page}`)
+            const { data } = await axios.get(`/person/${category}?page=${page}`)
 
         if(data.results.length > 0){
 
-    // setMovie(data.results)
-    setmovie((prevState)=> [...prevState, ...data.results])
+    // settrending(data.results)
+    setperson((prevState)=> [...prevState, ...data.results])
     setPage(page + 1)
 }
 else{
@@ -39,14 +39,14 @@ else{
     }
 
 const refreshHandler = ()=>{
-    if (movie.length === 0){
-        getMovie()
+    if (person.length === 0){
+        getTrending()
         
     }
     else{
         setPage(1)
-        setmovie([])
-getMovie()
+        setperson([])
+getTrending()
     }
 }
 
@@ -58,34 +58,30 @@ getMovie()
 
     const navigate = useNavigate()
 
-
-
-
-
-  return movie.length > 0 ? (
+  return person.length > 0 ? (
     <div className='  w-screen h-screen bg-[#1E1D23]'>
         <div className='w-full flex items-center justify-between px-[3%]'>
 
-            <h1 className='text-2xl font-semibold text-zinc-400 flex items-center gap-2'> <i onClick={() => navigate(-1)} className="hover:text-[#6952ff] cursor-pointer ri-arrow-left-fill"></i> movie <small className='text-xs mt-[9px]'>({category})</small> </h1>
+            <h1 className='text-2xl font-semibold text-zinc-400'> <i onClick={() => navigate(-1)} className="hover:text-[#6952ff] cursor-pointer ri-arrow-left-fill"></i> person </h1>
             <div className='w-[90%] flex items-center '>
 
                 <Topnav />
                 <div className='flex  gap-4 ml-10'>
-                <DropDown title="category" option={["popular", "top_rated","upcoming","now_playing"]} func={(e) => setCategory(e.target.value)} />
+                {/* <DropDown title="person" option={["tv", "movie"]} func={(e) => setCategory(e.target.value)} /> */}
                 {/* <DropDown title="Duration" option={["day", "week"]} func={(e) => setduration(e.target.value)} /> */}
                 </div>
             </div>
         </div>
         <InfiniteScroll
-        dataLength={movie.length}
-        next={getMovie}
+        dataLength={person.length}
+        next={getTrending}
         hasMore={hasMore}
         loader={<h1 className='text-white text-xl'>Loading</h1>}
         >
-        <Cards data={movie} title={category}/>
+        <Cards data={person} title={category}/>
         </InfiniteScroll>
     </div>
 ):<Loading/>
 }
 
-export default Movie
+export default People

@@ -60,12 +60,12 @@ getTv()
     <div className='  w-screen h-screen bg-[#1E1D23]'>
         <div className='w-full flex items-center justify-between px-[3%]'>
 
-            <h1 className='text-2xl font-semibold text-zinc-400'> <i onClick={() => navigate(-1)} className="hover:text-[#6952ff] cursor-pointer ri-arrow-left-fill"></i> Tv</h1>
+            <h1 className='text-2xl font-semibold text-zinc-400'> <i onClick={() => navigate(-1)} className="hover:text-[#6952ff] cursor-pointer ri-arrow-left-fill"></i> Tv<small className='text-xs mt-[9px]'>({category})</small> </h1>
             <div className='w-[90%] flex items-center '>
 
                 <Topnav />
                 <div className='flex  gap-4 ml-10'>
-                <DropDown title="category" option={["popular", "top_rated","on_the_air"]} func={(e) => setCategory(e.target.value)} />
+                <DropDown title="category" option={["popular", "top_rated","on_the_air","airing_today"]} func={(e) => setCategory(e.target.value)} />
                 {/* <DropDown title="Duration" option={["day", "week"]} func={(e) => setduration(e.target.value)} /> */}
                 </div>
             </div>
@@ -74,7 +74,7 @@ getTv()
         dataLength={Tv.length}
         next={getTv}
         hasMore={hasMore}
-        loader={<h1 className='text-white text-xl'>Loading</h1>}
+        loader={<Loading/>}
         >
         <Cards data={Tv} title={category}/>
         </InfiniteScroll>

@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom'
+import Loading from './Loading'
 
 function Header({ data }) {
     return (
         <div style={{
-            background: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://image.tmdb.org/t/p/original/${data.backdrop_path || data.profile_path})`,
+            background: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://image.tmdb.org/t/p/original/${data.backdrop_path || data.profile_path || data.poster_path})`,
             backgroundSize: 'cover',
 
 
