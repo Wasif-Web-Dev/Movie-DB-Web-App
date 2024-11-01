@@ -27,10 +27,10 @@ function Sidebar() {
                 </Link>
                 <hr />
                 <h1 className="my-5 font-bold text-xl">About Website</h1>
-                <Link className="p-4 hover:bg-[#6556CD] rounded-lg hover:text-zinc-50 duration-200">
+                <Link to="/About" className="p-4 hover:bg-[#6556CD] rounded-lg hover:text-zinc-50 duration-200">
                     <i className="ri-information-fill"></i> About Us
                 </Link>
-                <Link className="p-4 hover:bg-[#6556CD] rounded-lg hover:text-zinc-50 duration-200">
+                <Link to="/contact" className="p-4 hover:bg-[#6556CD] rounded-lg hover:text-zinc-50 duration-200">
                     <i className="ri-customer-service-fill"></i> Contact Us
                 </Link>
             </nav>

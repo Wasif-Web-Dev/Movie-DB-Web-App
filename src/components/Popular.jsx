@@ -8,7 +8,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import Topnav from "../partials/Topnav";
 
 function Popular() {
-    document.title = "SCSDB | Poppular";
+    document.title = "SCSDB | Popular";
 
     const [category, setCategory] = useState("movie");
     const [popular, setpopular] = useState([]);

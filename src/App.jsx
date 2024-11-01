@@ -6,6 +6,7 @@ import Popular from "./components/Popular";
 import Movie from "./components/Movie";
 import Tvshows from "./components/Tvshows";
 import People from "./components/People";
+import Contact from "./components/Contact";
 
 function App() {
     return (
@@ -17,6 +18,9 @@ function App() {
                 <Route path="/movie" element={<Movie />} />
                 <Route path="/tv-shows" element={<Tvshows />} />
                 <Route path="/people" element={<People />} />
+
+                <Route path="/Contact" element={<Contact />} />
+                <Route path="/About" element={<Contact />} />
             </Routes>
         </div>
     );
