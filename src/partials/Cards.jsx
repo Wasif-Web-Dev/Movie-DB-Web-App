@@ -5,7 +5,7 @@ const Cards = ({data, title}) => {
     return (
         <div className="w-ful flex flex-wrap  bg-[#1E1D23] px-[3%] items-center justify-center">
             {data.map((c, i) => (
-                <Link className="w-[25vh] h-[45vh] relative  overflow-hidden mb-[3%] mr-[5%]  " key={i}>
+                <Link to={`/${data.media_type || title }/details/${c.id}`} className="w-[25vh] h-[45vh] relative  overflow-hidden mb-[3%] mr-[5%]  " key={i}>
                     <img
                         className="h-[40vh] w-full object-cover shadow-[8px_17px_38px_2px_rgba(0,0,0,.5)]"
                         src={`https://image.tmdb.org/t/p/original/${
@@ -30,3 +30,6 @@ const Cards = ({data, title}) => {
 };
 
 export default Cards;
+
+
+

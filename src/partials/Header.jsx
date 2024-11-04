@@ -2,7 +2,7 @@ import {Link} from "react-router-dom";
 import Loading from "./Loading";
 
 function Header({data}) {
-    return (
+    return data ? (
         <div
             style={{
                 background: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://image.tmdb.org/t/p/original/${
@@ -26,7 +26,7 @@ function Header({data}) {
             </p>
             <Link className="bg-[#6556CD] p-4 mt-4 rounded">Play Trailer</Link>
         </div>
-    );
+    ) : <Loading/>
 }
 
 export default Header;
