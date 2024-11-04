@@ -18,7 +18,7 @@ function Header({data}) {
                 {data.original_title || data.name || data.original_name || data.title}
             </h1>
             <p className="mt-4 w-[60%] text-start">
-                {data.overview.slice(0, 200)}...<Link className="text-blue-500">More</Link>
+                {data.overview.slice(0, 200)}...<Link to={`/${data.media_type}/details/${data.id}`} className="text-blue-500">More</Link>
             </p>
             <p className="mt-3">
                 <i className="ri-megaphone-fill text-yellow-400"></i> {data.release_date || "Not Found😶"}{" "}
@@ -26,7 +26,9 @@ function Header({data}) {
             </p>
             <Link className="bg-[#6556CD] p-4 mt-4 rounded">Play Trailer</Link>
         </div>
-    ) : <Loading/>
+    ) : (
+        <Loading />
+    );
 }
 
 export default Header;

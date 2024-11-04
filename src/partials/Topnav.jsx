@@ -10,7 +10,6 @@ function topnav() {
     const getSearches = async () => {
         try {
             const {data} = await axios.get(`/search/multi?query=${query}`);
-            // console.log(data)
             setsearches(data.results);
         } catch (error) {
             console.log("Error :", error);

@@ -6,7 +6,11 @@ function HorizontalCards({data}) {
     return (
         <div className="w-full  flex overflow-y-hidden mb-5">
             {data.map((d, i) => (
-                <div key={i} className="min-w-[20%]  m-5 bg-zinc-800 mr-5 mb-5">
+                <Link
+                    to={`/${d.media_type}/details/${d.id}`}
+                    key={i}
+                    className="min-w-[20%]  m-5 bg-zinc-800 mr-5 mb-5"
+                >
                     <img
                         className="w-full h-[50%] object-cover"
                         src={`https://image.tmdb.org/t/p/original/${d.backdrop_path || d.profile_path}`}
@@ -20,7 +24,7 @@ function HorizontalCards({data}) {
                             {d.overview.slice(0, 50)}...<Link className="text-zinc-200">More</Link>
                         </p>
                     </div>
-                </div>
+                </Link>
             ))}
         </div>
     );
