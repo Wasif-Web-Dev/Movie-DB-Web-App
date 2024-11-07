@@ -1,8 +1,9 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import Loading from "./Loading";
 
 const Cards = ({data, title}) => {
-    return (
+    return data ? (
         <div className="w-ful flex flex-wrap  bg-[#1E1D23] px-[3%] items-center justify-center">
             {data.map((c, i) => (
                 <Link to={`/${c.media_type || title }/details/${c.id}`} className="w-[25vh] h-[45vh] relative  overflow-hidden mb-[3%] mr-[5%]  " key={i}>
@@ -26,7 +27,7 @@ const Cards = ({data, title}) => {
                 </Link>
             ))}
         </div>
-    );
+    ):<Loading/>
 };
 
 export default Cards;

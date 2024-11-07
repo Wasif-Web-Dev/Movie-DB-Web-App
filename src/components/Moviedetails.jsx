@@ -28,7 +28,8 @@ const Moviedetails = () => {
             }}
             className="w-screen h-screen px-[10%]"
         >
-            <div className="h-[10vh] flex items-center gap-10 text-zinc-100">
+            {/* Part 1 nav */}
+            <nav className="h-[10vh] flex items-center gap-10 text-zinc-100">
                 <Link>
                     {" "}
                     <i
@@ -49,6 +50,61 @@ const Moviedetails = () => {
                 >
                     imdb
                 </a>
+            </nav>
+            {/* Part 2 image section */}
+            <div className="w-full ">
+                <img
+                    className="h-[50vh] object-cover shadow-[8px_17px_38px_2px_rgba(0,0,0,.5)] rounded"
+                    src={`https://image.tmdb.org/t/p/original/${info.detail.poster_path || info.detail.backdrop_path}`}
+                    alt=""
+                />
+            </div>
+
+{/* Part 3 paltforms secrion */}
+
+
+            <div className="w-[80%] ">
+                <div className="flex flex-col gap-5 mt-5">
+                    {info.watchProvider && info.watchProvider.flatrate && (
+                        <div className="flex gap-x-10 items-center text-white">
+                            <h1 className="text-2xl uppercase">Available on Platforms</h1>
+                            {info.watchProvider.flatrate.map((m) => (
+                                <img
+                                    title={m.provider_name}
+                                    className="w-[5vh] h-[5vh] rounded"
+                                    src={`https://image.tmdb.org/t/p/original/${m.logo_path}`}
+                                    alt=""
+                                />
+                            ))}
+                        </div>
+                    )}
+                    {info.watchProvider && info.watchProvider.buy && (
+                        <div className="flex gap-x-10 items-center text-white">
+                            <h1 className="text-2xl uppercase">Available to Buy</h1>
+                            {info.watchProvider.buy.map((m) => (
+                                <img
+                                    title={m.provider_name}
+                                    className="w-[5vh] h-[5vh] rounded"
+                                    src={`https://image.tmdb.org/t/p/original/${m.logo_path}`}
+                                    alt=""
+                                />
+                            ))}
+                        </div>
+                    )}
+                    {info.watchProvider && info.watchProvider.rent && (
+                        <div className="flex gap-x-10 items-center text-white">
+                            <h1 className="text-2xl uppercase">Abailable for Rent</h1>
+                            {info.watchProvider.rent.map((m) => (
+                                <img
+                                    title={m.provider_name}
+                                    className="w-[5vh] h-[5vh] rounded"
+                                    src={`https://image.tmdb.org/t/p/original/${m.logo_path}`}
+                                    alt=""
+                                />
+                            ))}
+                        </div>
+                    )}
+                </div>
             </div>
         </div>
     ) : (
