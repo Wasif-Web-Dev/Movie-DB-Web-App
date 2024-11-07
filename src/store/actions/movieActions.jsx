@@ -21,7 +21,7 @@ export const asyncLoadMovie = (id) => async (dispatch, getState) => {
             watchProvider: watchProvider.data.results.IN,
         };
         dispatch(loadMovie(theUltimateData))
-        console.log(theUltimateData)
+        // console.log(theUltimateData)
     } catch (error) {
         console.log("Error :", error);
     }
