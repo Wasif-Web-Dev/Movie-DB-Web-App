@@ -36,7 +36,7 @@ function topnav() {
 
             <div className="rounded-lg max-h-[50vh] overflow-auto bg-zinc-200 w-[40%]  absolute top-[90%]">
                 {searches.map((e, i) => (
-                    <Link className="my-5 hover:text-black hover:font-semibold bg-zinc-200 text-zinc-600 flex justify-start items-center w-[100%] h-[10vh] p-12 border-b-2 border-zinc-100">
+                    <Link to={`/${e.media_type}/details/${e.id}`} className="my-5 hover:text-black hover:font-semibold bg-zinc-200 text-zinc-600 flex justify-start items-center w-[100%] h-[10vh] p-12 border-b-2 border-zinc-100">
                         <img
                             className="mr-10 w-[10vh] h-[10vh] object-cover rounded"
                             src={
