@@ -9,6 +9,7 @@ export const asyncLoadMovie = (id) => async (dispatch, getState) => {
         const externalId = await axios.get(`/movie/${id}/external_ids`);
         const recommendations = await axios.get(`/movie/${id}/recommendations`);
         const similar = await axios.get(`/movie/${id}/similar`);
+        const translations = await axios.get(`/movie/${id}/translations`);
         const videos = await axios.get(`/movie/${id}/videos`);
         const watchProvider = await axios.get(`/movie/${id}/watch/providers`);
 
@@ -17,10 +18,11 @@ export const asyncLoadMovie = (id) => async (dispatch, getState) => {
             externalId: externalId.data,
             recommendations: recommendations.data.results,
             similar: similar.data.results,
-            videos: videos.data.results.find(m => m.type === "Trailer"),
+            translations: translations.data.translations.map(t => t.name),
+            videos: videos.data.results.find((m) => m.type === "Trailer"),
             watchProvider: watchProvider.data.results.IN,
         };
-        dispatch(loadMovie(theUltimateData))
+        dispatch(loadMovie(theUltimateData));
         // console.log(theUltimateData)
     } catch (error) {
         console.log("Error :", error);

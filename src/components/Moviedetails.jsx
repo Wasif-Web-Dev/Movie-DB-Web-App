@@ -1,10 +1,12 @@
 import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {asyncLoadMovie, removeMovie} from "../store/actions/movieActions";
-import {Link, useNavigate, useParams} from "react-router-dom";
+import {Link, Outlet, useLocation, useNavigate, useParams} from "react-router-dom";
 import Loading from "../partials/Loading";
+import HorizontalCards from "../partials/HorizontalCards";
 
 const Moviedetails = () => {
+    const {pathname} = useLocation();
     const {info} = useSelector((state) => state.movie);
     const navigate = useNavigate();
     const {id} = useParams();
@@ -16,7 +18,7 @@ const Moviedetails = () => {
         return () => {
             dispatch(removeMovie());
         };
-    }, [dispatch, id]);
+    }, [id]);
 
     return info ? (
         <div
@@ -26,7 +28,7 @@ const Moviedetails = () => {
 
                 backgroundPosition: "center",
             }}
-            className="w-screen h-screen px-[10%]"
+            className="w-screen h-[150vh] px-[10%] relative"
         >
             {/* Part 1 nav */}
             <nav className="h-[10vh] flex items-center gap-10 text-zinc-100">
@@ -52,19 +54,52 @@ const Moviedetails = () => {
                 </a>
             </nav>
             {/* Part 2 image section */}
-            <div className="w-full ">
+            <div className="w-full flex">
                 <img
-                    className="h-[50vh] object-cover shadow-[8px_17px_38px_2px_rgba(0,0,0,.5)] rounded"
+                    className="h-[60vh] object-cover shadow-[8px_17px_38px_2px_rgba(0,0,0,.5)] rounded"
                     src={`https://image.tmdb.org/t/p/original/${info.detail.poster_path || info.detail.backdrop_path}`}
                     alt=""
                 />
+                <div className="content ml-[5%] ">
+                    <h1 className="text-5xl text-white font-black       ">
+                        {info.detail.original_title ||
+                            info.detail.name ||
+                            info.detail.original_name ||
+                            info.detail.title}
+                        <span className="text-2xl font-zinc-400 font-bold ">
+                            ({info.detail.release_date.split("-")[0]})
+                        </span>
+                    </h1>
+                    <div className="flex items-center text-white gap-x-5">
+                        <span className="text-white text-xl  h-[6vh] w-[6vh] bg-yellow-500 flex items-center justify-center rounded-full">
+                            <h1>{(info.detail.vote_average * 10).toFixed()}</h1>
+                            <sup>%</sup>
+                        </span>
+                        <h1 className="font-semibold text-xl w-[50px] leading-5 ml-[-15px]">User Score</h1>
+                        <h1 className="font-semibold">{info.detail.release_date}</h1>
+                        <h1 className="font-semibold">{info.detail.genres.map((g) => g.name).join()}</h1>
+                        <h1 className="font-semibold">{info.detail.runtime}mins</h1>
+                    </div>
+                    <h1 className="text-white text-2xl font-semibold mt-3">{info.detail.tagline}</h1>
+
+                    <div className="text-white">
+                        <h1 className="text-white text-3xl font-semibold mt-3">Overview</h1>
+                        <p className="">{info.detail.overview}</p>
+                    </div>
+                    <div className="text-white">
+                        <h1 className="text-white text-3xl font-semibold mt-3">Movie Translated</h1>
+                        <p className="mb-7">{info.translations.join(", ")}</p>
+                        <Link to={`${pathname}/trailer`} className="bg-[#6556CD] px-7 py-3 rounded">
+                            {" "}
+                            <i class="ri-play-fill"></i> Play Trailer
+                        </Link>
+                    </div>
+                </div>
             </div>
-
-{/* Part 3 paltforms secrion */}
-
+            {/* part 3 platforms*/}
 
             <div className="w-[80%] ">
-                <div className="flex flex-col gap-5 mt-5">
+                <div className="flex flex-col gap-5 mt-8">
                     {info.watchProvider && info.watchProvider.flatrate && (
                         <div className="flex gap-x-10 items-center text-white">
                             <h1 className="text-2xl uppercase">Available on Platforms</h1>
@@ -106,6 +141,12 @@ const Moviedetails = () => {
                     )}
                 </div>
             </div>
+
+            {/* part 4 recommendations and similars */}
+            <hr className="mt-10 mb-5 border-none h-[2px] bg-zinc-100" />
+            <h1 className="text-white font-black text-2xl">Recommendations And similar Stuff</h1>
+            <HorizontalCards data={info.recommendations.length > 0 ? info.recommendations : info.similar} />
+            <Outlet />
         </div>
     ) : (
         <Loading />

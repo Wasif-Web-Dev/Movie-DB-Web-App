@@ -9,7 +9,7 @@ function HorizontalCards({data}) {
                 <Link
                     to={`/${d.media_type}/details/${d.id}`}
                     key={i}
-                    className="min-w-[20%]  m-5 bg-zinc-800 mr-5 mb-5"
+                    className="min-w-[20%] h-[35vh] m-5 bg-zinc-800 mr-5 mb-5"
                 >
                     <img
                         className="w-full h-[50%] object-cover"
@@ -17,10 +17,8 @@ function HorizontalCards({data}) {
                         alt=""
                     />
                     <div className="h-[50%] p-3 text-white">
-                        <h1 className={"text-xl text-center font-semibold"}>
-                            {d.original_title || "Title Not Found!!"}
-                        </h1>
-                        <p className="mt-2 text-center w-full text-lg">
+                        <h1 className={"text-xl  font-semibold"}>{d.original_title || "Title Not Found!!"}</h1>
+                        <p className="mt-2  w-full">
                             {d.overview.slice(0, 50)}...<Link className="text-zinc-200">More</Link>
                         </p>
                     </div>
