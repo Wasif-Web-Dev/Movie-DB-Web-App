@@ -17,7 +17,9 @@ function HorizontalCards({data}) {
                         alt=""
                     />
                     <div className="h-[50%] p-3 text-white">
-                        <h1 className={"text-xl  font-semibold"}>{d.original_title || "Title Not Found!!"}</h1>
+                        <h1 className={"text-xl  font-semibold"}>
+                            {d.original_title || d.name || d.original_name || d.title}
+                        </h1>
                         <p className="mt-2  w-full">
                             {d.overview.slice(0, 50)}...<Link className="text-zinc-200">More</Link>
                         </p>

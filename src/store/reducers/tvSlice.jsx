@@ -18,6 +18,6 @@ export const tvSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const {increment, decrement, incrementByAmount} = tvSlice.actions;
+export const {loadtv, removetv} = tvSlice.actions;
 
 export default tvSlice.reducer;
