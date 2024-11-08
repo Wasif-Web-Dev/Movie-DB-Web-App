@@ -18,6 +18,6 @@ export const personSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const {increment, decrement, incrementByAmount} = personSlice.actions;
+export const {removeperson,loadperson} = personSlice.actions;
 
 export default personSlice.reducer;

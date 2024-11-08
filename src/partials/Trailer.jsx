@@ -21,7 +21,7 @@ const Trailer = () => {
                 className="hover:text-[#6952ff] text-white text-5xl absolute top-[5%] right-[5%] cursor-pointer ri-close-fill"
             ></Link>
             {ytVideo ? (
-                <ReactPlayer height={500} width={1000} url={`https://www.youtube.com/watch?v=${ytVideo.key}`} />
+                <ReactPlayer controls height={500} width={1000} url={`https://www.youtube.com/watch?v=${ytVideo.key}`} />
             ) : (
                 <NotFound />
             )}
