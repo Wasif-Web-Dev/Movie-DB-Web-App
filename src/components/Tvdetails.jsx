@@ -25,10 +25,9 @@ const Tvdetails = () => {
             style={{
                 background: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://image.tmdb.org/t/p/original/${info.detail.backdrop_path})`,
                 backgroundSize: "cover",
-
                 backgroundPosition: "center",
             }}
-            className="w-screen h-[150vh] px-[10%] relative"
+            className="w-screen h-max px-[10%] relative object-cover"
         >
             {/* Part 1 nav */}
             <nav className="h-[10vh] flex items-center gap-10 text-zinc-100">
@@ -79,7 +78,9 @@ const Tvdetails = () => {
                         <h1 className="font-semibold">{info.detail.first_air_date}</h1>
                         <h1 className="font-semibold">{info.detail.genres.map((g) => g.name).join()}</h1>
                         {info.detail.seasons ? (
-                            <h1 className="font-semibold">{info.detail.seasons.length} seasons</h1>
+                            <h1 className="font-semibold">
+                                {info.detail.seasons.length} {info.detail.seasons.length > 1 ? "seasons" : "season"}
+                            </h1>
                         ) : (
                             "<h1> </h1>"
                         )}
@@ -149,7 +150,33 @@ const Tvdetails = () => {
             {/* seasons */}
             <hr className="mt-10 mb-5 border-none h-[2px] bg-zinc-100" />
             <h1 className="text-white font-black text-2xl">Seasons</h1>
-            <HorizontalCards data={info.detail.seasons} />
+            <div className="w-ful flex flex-wrap   px-[3%] items-center justify-start">
+                <Link
+                    to={`/${info.detail.media_type}/details/${info.detail.id}`}
+                    className="w-[25vh] h-[45vh] relative  overflow-hidden mb-[3%] mr-[5%]  "
+                >
+                    <img
+                        className="h-[40vh] w-full object-cover shadow-[8px_17px_38px_2px_rgba(0,0,0,.5)]"
+                        src={`https://image.tmdb.org/t/p/original/${
+                            info.detail.poster_path || info.detail.backdrop_path || info.detail.profile_path
+                        }`}
+                        alt=""
+                    />
+                    <h1 className="text-2xl mt-1 text-zinc-300 text-center">
+                        {info.detail.original_title ||
+                            info.detail.name ||
+                            info.detail.original_name ||
+                            info.detail.title}
+                    </h1>
+
+                    {info.detail.vote_average && (
+                        <div className="text-white text-xl absolute right-0 bottom-11 h-[6vh] w-[6vh] bg-yellow-500 flex items-center justify-center rounded-full">
+                            <h1>{(info.detail.vote_average * 10).toFixed()}</h1>
+                            <sup>%</sup>
+                        </div>
+                    )}
+                </Link>
+            </div>
 
             {/* part 4 recommendations and similars */}
             <hr className="mt-10 mb-5 border-none h-[2px] bg-zinc-100" />

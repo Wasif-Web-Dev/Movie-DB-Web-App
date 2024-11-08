@@ -7,7 +7,7 @@ function HorizontalCards({data}) {
         <div className="w-full  flex overflow-y-hidden mb-5">
             {data.map((d, i) => (
                 <Link
-                    to={`/${d.media_type}/details/${d.id}`}
+                    to={`/${d.media_type || "tv"}/details/${d.id}`}
                     key={i}
                     className="min-w-[20%] h-[35vh] m-5 bg-zinc-800 mr-5 mb-5"
                 >

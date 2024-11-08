@@ -18,7 +18,7 @@ function topnav() {
 
     useEffect(() => {
         getSearches();
-    }, [query]);
+    }, [query,searches]);
 
     return (
         <div className="flex items-center justify-start px-[20%] gap-5 h-[10vh] relative z-10">
