@@ -27,7 +27,7 @@ const Tvdetails = () => {
                 backgroundSize: "cover",
                 backgroundPosition: "center",
             }}
-            className="w-screen h-max px-[10%] relative object-cover"
+            className="w-full h-max px-[10%] relative object-cover"
         >
             {/* Part 1 nav */}
             <nav className="h-[10vh] flex items-center gap-10 text-zinc-100">
@@ -92,7 +92,7 @@ const Tvdetails = () => {
                         <p className="">{info.detail.overview}</p>
                     </div>
                     <div className="text-white">
-                        <h1 className="text-white text-3xl font-semibold mt-3">tv Translated</h1>
+                        <h1 className="text-white text-3xl font-semibold mt-3">Translated Languages</h1>
                         <p className="mb-7">{info.translations.join(", ")}</p>
                         <Link to={`${pathname}/trailer`} className="bg-[#6556CD] px-7 py-3 rounded">
                             {" "}
@@ -150,36 +150,32 @@ const Tvdetails = () => {
             {/* seasons */}
             <hr className="mt-10 mb-5 border-none h-[2px] bg-zinc-100" />
             <h1 className="text-white font-black text-2xl">Seasons</h1>
-            <div className="w-ful flex flex-wrap   px-[3%] items-center justify-start">
-                <Link
-                    to={`/${info.detail.media_type}/details/${info.detail.id}`}
-                    className="w-[25vh] h-[45vh] relative  overflow-hidden mb-[3%] mr-[5%]  "
-                >
-                    <img
-                        className="h-[40vh] w-full object-cover shadow-[8px_17px_38px_2px_rgba(0,0,0,.5)]"
-                        src={`https://image.tmdb.org/t/p/original/${
-                            info.detail.poster_path || info.detail.backdrop_path || info.detail.profile_path
-                        }`}
-                        alt=""
-                    />
-                    <h1 className="text-2xl mt-1 text-zinc-300 text-center">
-                        {info.detail.original_title ||
-                            info.detail.name ||
-                            info.detail.original_name ||
-                            info.detail.title}
-                    </h1>
-
-                    {info.detail.vote_average && (
-                        <div className="text-white text-xl absolute right-0 bottom-11 h-[6vh] w-[6vh] bg-yellow-500 flex items-center justify-center rounded-full">
-                            <h1>{(info.detail.vote_average * 10).toFixed()}</h1>
-                            <sup>%</sup>
-                        </div>
-                    )}
-                </Link>
+            <div className="w-full   overflow-x-auto">
+                {" "}
+                <div className="w-max h-[48vh]  flex px-[1%] gap-3 items-center justify-start">
+                    {info.detail.seasons.map((e, i) => (
+                        <Link
+                            to={`/${e.media_type || "tv"}/details/${e.id}`}
+                            key={i}
+                            className="min-w-[10%] h-[40vh] m-5 mb-5  rounded"
+                        >
+                            <img
+                                className="w-full h-[80%] object-cover center rounded"
+                                src={`https://image.tmdb.org/t/p/original/${e.poster_path}`}
+                                alt=""
+                            />
+                            <div className="h-[20%] p-3 text-white">
+                                <h1 className={"text-xl  font-semibold"}>
+                                    {e.original_title || e.name || e.original_name || e.title}
+                                </h1>   
+                            </div>
+                        </Link>
+                    ))}
+                </div>
             </div>
 
             {/* part 4 recommendations and similars */}
-            <hr className="mt-10 mb-5 border-none h-[2px] bg-zinc-100" />
+            <hr className=" mb-5 border-none h-[2px] bg-zinc-100" />
             <h1 className="text-white font-black text-2xl">Recommendations And similar Stuff</h1>
             <HorizontalCards data={info.recommendations.length > 0 ? info.recommendations : info.similar} />
             <Outlet />
