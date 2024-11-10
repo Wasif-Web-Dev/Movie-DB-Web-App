@@ -50,11 +50,11 @@ const People = () => {
     return person.length > 0 ? (
         <div className="  w-screen h-screen bg-[#1E1D23]">
             <div className="w-full flex items-center justify-between px-[3%]">
-                <h1 className="text-2xl font-semibold text-zinc-400">
+                <h1 className="flex items-center gap-1 ext-2xl font-semibold text-zinc-400">
                     {" "}
                     <i
                         onClick={() => navigate(-1)}
-                        className="hover:text-[#6952ff] cursor-pointer ri-arrow-left-fill"
+                        className="mt-2 hover:text-[#6952ff] cursor-pointer ri-arrow-left-fill"
                     ></i>{" "}
                     person{" "}
                 </h1>
