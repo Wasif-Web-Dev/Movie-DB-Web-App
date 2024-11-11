@@ -42,7 +42,7 @@ function topnav() {
                 value={query}
                 className="nav-search_animate w-[50%] outline-none border-none bg-transparent text-zinc-300"
                 type="text"
-                placeholder="Search anything"
+                placeholder="Search..."
             />
             {query.length > 0 && (
                 <i onClick={() => setquery("")} className="cursor-pointer text-3xl text-zinc-300 ri-close-line"></i>
