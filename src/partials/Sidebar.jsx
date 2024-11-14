@@ -20,8 +20,10 @@ function Sidebar({sidebarOpen}) {
 
     return (
         <div
-            className={`animate-stuff bg-zinc-800 z-[45] w-[15%] block max-2xl:w-[20%] max-Laptop:w-[28%] max-md:w-[40%] max-tabletS:w-[50%] 
-                max-mobileXL:absolute max-mobileM:w-[60%]  max-mobileS:w-[70%] left-0  ${sidebarOpen ? "block" : "max-md:hidden"}
+            className={`animate-stuff h-full bg-zinc-800 z-[45] w-[15%] block max-2xl:w-[20%] max-Laptop:w-[28%] max-md:w-[40%] max-tabletS:w-[50%] 
+                max-mobileXL:absolute max-mobileM:w-[60%] max-mobileL:w-[70%]  max-mobileS:w-[70%] left-0  ${
+                    sidebarOpen ? "block" : "max-md:hidden"
+                }
              relative max-md:w-[40%]  w-[15%] h-full p-8 border-r-2 border-zinc-400 text-zinc-100`}
         >
             <h1 className="animate-stuff ">

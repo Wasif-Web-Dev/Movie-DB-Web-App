@@ -38,7 +38,7 @@ function topnav({toggleSidebar}) {
         <div className=" flex items-center justify-start px-[20%] gap-5 h-[10vh] relative ">
             <i
                  onClick={toggleSidebar}
-                class="ri-align-justify z-[46] text-3xl hidden max-md:block text-white absolute top-0 left-5 max-[425px]:left-2  max-[425px]:text-2xl  max-[375px]:left-0"
+                class="ri-align-justify z-[46] text-3xl hidden max-md:block text-white fixed top-0 left-5 max-[425px]:left-2  max-[425px]:text-2xl  max-[375px]:left-0"
             ></i>
             <i className="nav-search_animate text-3xl text-zinc-300 ri-search-line"></i>
             <input
