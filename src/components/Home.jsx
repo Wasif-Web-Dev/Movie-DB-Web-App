@@ -11,13 +11,18 @@ import gsap from "gsap";
 
 function Home() {
     const TrendingRef = useRef(null);
+    const [sidebarOpen, setSidebarOpen] = useState(false);
+
+    const toggleSidebar = () => {
+        setSidebarOpen(!sidebarOpen);
+    };
     useGSAP(() => {
-        gsap.from( ".Trending-animation", {
+        gsap.from(".Trending-animation", {
             y: 200,
             opacity: 0,
             duration: 1,
         });
-    },[]);
+    }, [TrendingRef.current]);
 
     document.title = "SCSDB | Home";
     const [wallpaper, setWallpaper] = useState(null);
@@ -52,9 +57,9 @@ function Home() {
         wallpaper,
         trending ? (
             <>
-                <Sidebar />
-                <div className="w-[80%] max-md:w-full h-full  overflow-hidden overflow-y-auto">
-                    <Topnav />
+                <Sidebar sidebarOpen={sidebarOpen} />
+                <div className="w-[85%] max-2xl:w-[80%] max-Laptop:w-[75%] max-md:w-full h-full overflow-hidden overflow-y-auto">
+                    <Topnav toggleSidebar={toggleSidebar} />
                     <Header data={wallpaper} />
                     <div className="p-5 flex justify-between items-center">
                         <div className=" relative overflow-hidden h-8">
