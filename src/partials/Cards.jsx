@@ -4,11 +4,11 @@ import Loading from "./Loading";
 
 const Cards = ({data, title}) => {
     return data ? (
-        <div className="w-ful flex flex-wrap  bg-[#1E1D23] px-[3%] max-sm:px-[1%] items-center justify-center">
+        <div className="w-ful flex flex-wrap mt-5 bg-[#1E1D23] px-[3%] max-sm:px-[1%] items-center justify-center">
             {data.map((c, i) => (
                 <Link
                     to={`/${c.media_type || title}/details/${c.id}`}
-                    className="w-[25vh] h-[45vh]  max-sm:w-[15vh] max-sm:h-[30vh] max-mobileM:w-[10vh] max-mobileM:h-[22vh] relative  overflow-hidden mb-[3%] mr-[5%]  "
+                    className="w-[25vh] h-[45vh]  max-sm:w-[15vh] max-sm:h-[30vh] max-mobileL:w-[12vh] max-mobileM:w-[10vh] max-mobileM:h-[22vh] relative  overflow-hidden mb-[3%] mr-[5%]  "
                     key={i}
                 >
                     <img
