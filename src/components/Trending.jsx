@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import Topnav from "../partials/Topnav";
 import DropDown from "../partials/DropDown";
@@ -6,9 +6,23 @@ import axios from "../utils/axios";
 import Cards from "../partials/Cards";
 import Loading from "../partials/Loading";
 import InfiniteScroll from "react-infinite-scroll-component";
+import gsap from "gsap";
+import {useGSAP} from "@gsap/react";
+
+gsap.registerPlugin(useGSAP);
 
 function Trending() {
     document.title = "SCSDB | Trending";
+
+    const trTRef = useRef(null);
+    useGSAP(() => {
+        gsap.from(trTRef.current, {
+            y: 300,
+            duration: 1,
+            stagger: 0.2,
+            ease: "power2.Out",
+        });
+    });
 
     const [category, setCategory] = useState("all");
     const [duration, setduration] = useState("day");
@@ -50,7 +64,10 @@ function Trending() {
     return trending.length > 0 ? (
         <div className="w-screen overflow- h-screen bg-[#1E1D23]">
             <div className="w-full flex items-center justify-between px-[2%]">
-                <h1 className="w-[20vw]  text-2xl max-md:text-xl max-sm:text-sm font-semibold text-zinc-400">
+                <h1
+                    ref={trTRef}
+                    className="w-[20vw]  text-2xl max-md:text-xl max-sm:text-sm font-semibold text-zinc-400"
+                >
                     <i
                         onClick={() => navigate(-1)}
                         className="hover:text-[#6952ff] cursor-pointer ri-arrow-left-fill"

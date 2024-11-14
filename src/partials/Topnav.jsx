@@ -35,8 +35,7 @@ function topnav() {
     }, [query, searches]);
 
     return (
-        <div className=" flex items-center justify-start px-[20%] max-md:px-[10%] max-sm:px-[5%] gap-5 h-[10vh] max-mobileXL:h-[6vh] relative ">
-           
+        <div className=" flex items-center justify-start px-[20%] max-sm:px-[10%] max-mobileL:px-[5%] gap-5 h-[10vh] max-mobileXL:h-[6vh] relative ">
             <i className="nav-search_animate text-3xl max-mobileXL:text-2xl text-zinc-300 ri-search-line"></i>
             <input
                 onChange={(e) => setquery(e.target.value)}

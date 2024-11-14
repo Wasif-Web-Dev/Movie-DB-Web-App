@@ -50,11 +50,11 @@ function Popular() {
     return popular.length > 0 ? (
         <div className="w-screen overflow- h-screen bg-[#1E1D23]">
             <div className="w-full flex items-center justify-between px-[2%]">
-                <h1 className="w-[25vw] border-2 text-2xl max-md:text-xl max-sm:text-sm font-semibold text-zinc-400">
+                <h1 className="w-[25vw]  text-2xl max-md:text-xl max-sm:text-sm font-semibold text-zinc-400">
                     {" "}
                     <i
                         onClick={() => navigate(-1)}
-                        className="hover:text-[#6952ff] text-xs cursor-pointer ri-arrow-left-fill"
+                        className="hover:text-[#6952ff] max-sm:text-sm cursor-pointer ri-arrow-left-fill"
                     ></i>{" "}
                     popular{" "}
                 </h1>

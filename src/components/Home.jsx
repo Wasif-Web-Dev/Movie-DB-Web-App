@@ -59,7 +59,10 @@ function Home() {
             <>
                 <Sidebar sidebarOpen={sidebarOpen} />
                 <div className="w-[85%] max-2xl:w-[80%] max-Laptop:w-[75%] max-md:w-full h-full overflow-hidden overflow-y-auto">
+                    <div className="ml-10">
+
                     <Topnav />
+                    </div>
                     <Header toggleSidebar={toggleSidebar} data={wallpaper} />
                     <div className="p-5 flex justify-between items-center">
                         <div className=" relative overflow-hidden h-8">
