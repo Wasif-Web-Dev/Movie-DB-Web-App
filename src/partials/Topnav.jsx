@@ -36,6 +36,7 @@ function topnav() {
 
     return (
         <div className=" flex items-center justify-start px-[20%] gap-5 h-[10vh] relative z-10">
+            <i class="ri-align-justify text-4xl hidden max-md:block text-white absolute top-5 left-5 max-[425px]:left-2 max-[425px]:text-3xl  max-[375px]:left-0"></i>
             <i className="nav-search_animate text-3xl text-zinc-300 ri-search-line"></i>
             <input
                 onChange={(e) => setquery(e.target.value)}

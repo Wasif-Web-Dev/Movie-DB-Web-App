@@ -21,7 +21,7 @@ function Sidebar() {
 
 
     return (
-        <div className="animate-stuff w-[20%] h-full  p-10 border-r-2 border-zinc-400 text-zinc-100">
+        <div className="animate-stuff max-md:w-[0%]  max-md:hidden w-[20%] h-full  p-10 border-r-2 border-zinc-400 text-zinc-100">
             <h1 className="animate-stuff ">
                 <i className="ri-tv-fill text-[#6556CD] mr-2 text-2xl"></i>
                 <span className=" text-2xl">SCSDB.</span>

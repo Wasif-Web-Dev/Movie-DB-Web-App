@@ -38,3 +38,13 @@ select{
     cursor: pointer;
 }
 
+@media (max-width: 768px) {
+    select{
+        width: 200px;
+    }
+}
+@media (max-width: 425px) {
+    select{
+        width: 150px;
+    }
+}

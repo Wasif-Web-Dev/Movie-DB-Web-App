@@ -53,7 +53,7 @@ function Home() {
         trending ? (
             <>
                 <Sidebar />
-                <div className="w-[80%] h-full  overflow-hidden overflow-y-auto">
+                <div className="w-[80%] max-md:w-full h-full  overflow-hidden overflow-y-auto">
                     <Topnav />
                     <Header data={wallpaper} />
                     <div className="p-5 flex justify-between items-center">

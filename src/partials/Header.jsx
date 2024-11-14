@@ -49,11 +49,11 @@ function Header({data}) {
             }}
             className="animate-Header w-full h-[50vh] text-white flex items-start  justify-end p-[5%] flex-col overflow-hidden"
         >
-            <h1 ref={HeadingRef} className={"text-5xl font-semibold w-[70%]  text-white"}>
+            <h1 ref={HeadingRef} className={"text-5xl  font-semibold w-[70%]  text-white max-md:text-4xl max-md:w-[90%]"}>
                 {data.original_title || data.name || data.original_name || data.title}
             </h1>
             <div className=" overflow-hidden relative">
-                <p ref={textRef} className="mt-4 w-[60%] text-start">
+                <p ref={textRef} className="mt-4 w-[60%] max-md:w-[90%] max-sm:w-[100%] text-start">
                     {data.overview.slice(0, 200)}...
                     <Link to={`/${data.media_type}/details/${data.id}`} className="text-blue-500">
                         More
@@ -67,7 +67,7 @@ function Header({data}) {
             <Link
                 ref={trailerRef}
                 to={`/${data.media_type}/details/${data.id}/trailer`}
-                className="bg-[#6556CD] p-4 mt-4 rounded"
+                className="bg-[#6556CD] px-4 py-2 mt-4 rounded max-md:px-2 max-md:py-1"
             >
                 Play Trailer
             </Link>

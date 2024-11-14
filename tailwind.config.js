@@ -12,7 +12,7 @@ export default {
                     tabletS: "640px", // Modify existing breakpoint if needed
                     tabletM: "768px", // Medium screens (default)
                     Laptop: "1024px", // Large screens (default)
-                    Llaptop: "1280px", // Extra-large screens (default)
+                    LaptopL: "1280px", // Extra-large screens (default)
                     "2xl": "1440px", // Custom breakpoint for even larger screens
                 },
             },
