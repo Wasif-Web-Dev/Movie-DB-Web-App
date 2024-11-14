@@ -48,19 +48,19 @@ function Movie() {
     const navigate = useNavigate();
 
     return movie.length > 0 ? (
-        <div className="  w-screen h-screen bg-[#1E1D23]">
-            <div className="w-full flex items-center justify-between px-[3%]">
-                <h1 className="text-2xl font-semibold text-zinc-400 flex items-center gap-2">
+        <div className="w-screen overflow- h-screen bg-[#1E1D23]">
+            <div className="w-full flex items-center justify-between px-[2%]">
+                <h1 className="w-[20vw]  text-2xl max-md:text-xl max-sm:text-sm font-semibold text-zinc-400">
                     {" "}
                     <i
                         onClick={() => navigate(-1)}
                         className="hover:text-[#6952ff] cursor-pointer ri-arrow-left-fill"
                     ></i>{" "}
-                    movie <small className="text-xs mt-[9px]">({category})</small>{" "}
+                    movie <small className="max-sm:hidden text-xs mt-[9px]">({category})</small>{" "}
                 </h1>
                 <div className="w-[90%] flex items-center ">
                     <Topnav />
-                    <div className="flex  gap-4 ml-10">
+                    <div className="w-[90%] flex items-center ">
                         <DropDown
                             title="category"
                             option={["popular", "top_rated", "upcoming", "now_playing"]}

@@ -4,7 +4,7 @@ import {useRef} from "react";
 import {useGSAP} from "@gsap/react";
 import gsap from "gsap";
 
-function Header({data}) {
+function Header({data, toggleSidebar}) {
     const HeaderRef = useRef(null);
     const textRef = useRef(null);
     const HeadingRef = useRef(null);
@@ -49,6 +49,10 @@ function Header({data}) {
             }}
             className="animate-Header w-full h-[50vh] text-white flex items-start  justify-end p-[5%] flex-col overflow-hidden"
         >
+             <i
+                onClick={toggleSidebar}
+                class="ri-align-justify z-[46] text-3xl hidden max-md:block text-white fixed top-0 left-5 max-[425px]:left-2  max-[425px]:text-2xl  max-[375px]:left-0"
+            ></i>
             <h1 ref={HeadingRef} className={"text-5xl  font-semibold w-[70%]  text-white max-md:text-4xl max-md:w-[90%]"}>
                 {data.original_title || data.name || data.original_name || data.title}
             </h1>

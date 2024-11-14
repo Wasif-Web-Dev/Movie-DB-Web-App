@@ -5,7 +5,7 @@ import noimage from "../../public/noimage.webp";
 import {useGSAP} from "@gsap/react";
 import gsap from "gsap";
 
-function topnav({toggleSidebar}) {
+function topnav() {
     // const SearchRef = useRef(null);
     // const inputRef = useRef(null);
     // const crossRef = useRef(null);
@@ -35,11 +35,8 @@ function topnav({toggleSidebar}) {
     }, [query, searches]);
 
     return (
-        <div className=" flex items-center justify-start px-[20%] gap-5 h-[10vh] max-mobileXL:h-[6vh] relative ">
-            <i
-                onClick={toggleSidebar}
-                class="ri-align-justify z-[46] text-3xl hidden max-md:block text-white fixed top-0 left-5 max-[425px]:left-2  max-[425px]:text-2xl  max-[375px]:left-0"
-            ></i>
+        <div className=" flex items-center justify-start px-[20%] max-md:px-[10%] max-sm:px-[5%] gap-5 h-[10vh] max-mobileXL:h-[6vh] relative ">
+           
             <i className="nav-search_animate text-3xl max-mobileXL:text-2xl text-zinc-300 ri-search-line"></i>
             <input
                 onChange={(e) => setquery(e.target.value)}

@@ -59,8 +59,8 @@ function Home() {
             <>
                 <Sidebar sidebarOpen={sidebarOpen} />
                 <div className="w-[85%] max-2xl:w-[80%] max-Laptop:w-[75%] max-md:w-full h-full overflow-hidden overflow-y-auto">
-                    <Topnav toggleSidebar={toggleSidebar} />
-                    <Header data={wallpaper} />
+                    <Topnav />
+                    <Header toggleSidebar={toggleSidebar} data={wallpaper} />
                     <div className="p-5 flex justify-between items-center">
                         <div className=" relative overflow-hidden h-8">
                             <h1 ref={TrendingRef} className="Trending-animation text-2xl text-white font-semibold ">

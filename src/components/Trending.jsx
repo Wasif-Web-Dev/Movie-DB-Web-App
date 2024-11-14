@@ -48,25 +48,30 @@ function Trending() {
 
     const navigate = useNavigate();
     return trending.length > 0 ? (
-        <div className="  w-screen h-screen bg-[#1E1D23]">
-            <div className="w-full flex items-center justify-between px-[3%]">
-                <h1 className="text-2xl font-semibold text-zinc-400">
-                    {" "}
+        <div className="w-screen overflow- h-screen bg-[#1E1D23]">
+            <div className="w-full flex items-center justify-between px-[2%]">
+                <h1 className="w-[20vw]  text-2xl max-md:text-xl max-sm:text-sm font-semibold text-zinc-400">
                     <i
                         onClick={() => navigate(-1)}
                         className="hover:text-[#6952ff] cursor-pointer ri-arrow-left-fill"
-                    ></i>{" "}
+                    ></i>
                     Trending
                 </h1>
                 <div className="w-[90%] flex items-center ">
                     <Topnav />
-                    <div className="flex  gap-4 ml-10">
+                    <div className="flex gap-2">
                         <DropDown
                             title="Trending"
                             option={["movie", "tv", "all"]}
                             func={(e) => setCategory(e.target.value)}
                         />
-                        <DropDown title="Duration" option={["day", "week"]} func={(e) => setduration(e.target.value)} />
+                        <div className="max-tabletM:hidden">
+                            <DropDown
+                                title="Duration"
+                                option={["day", "week"]}
+                                func={(e) => setduration(e.target.value)}
+                            />
+                        </div>
                     </div>
                 </div>
             </div>

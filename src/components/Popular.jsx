@@ -48,19 +48,19 @@ function Popular() {
     const navigate = useNavigate();
 
     return popular.length > 0 ? (
-        <div className="  w-screen h-screen bg-[#1E1D23]">
-            <div className="w-full flex items-center justify-between px-[3%]">
-                <h1 className="text-2xl font-semibold text-zinc-400">
+        <div className="w-screen overflow- h-screen bg-[#1E1D23]">
+            <div className="w-full flex items-center justify-between px-[2%]">
+                <h1 className="w-[25vw] border-2 text-2xl max-md:text-xl max-sm:text-sm font-semibold text-zinc-400">
                     {" "}
                     <i
                         onClick={() => navigate(-1)}
-                        className="hover:text-[#6952ff] cursor-pointer ri-arrow-left-fill"
+                        className="hover:text-[#6952ff] text-xs cursor-pointer ri-arrow-left-fill"
                     ></i>{" "}
                     popular{" "}
                 </h1>
                 <div className="w-[90%] flex items-center ">
                     <Topnav />
-                    <div className="flex  gap-4 ml-10">
+                    <div className="flex gap-2">
                         <DropDown title="Popular" option={["tv", "movie"]} func={(e) => setCategory(e.target.value)} />
                         {/* <DropDown title="Duration" option={["day", "week"]} func={(e) => setduration(e.target.value)} /> */}
                     </div>
