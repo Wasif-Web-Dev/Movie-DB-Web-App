@@ -28,7 +28,7 @@ const Moviedetails = () => {
                 backgroundRepeat: "no-repeat",
                 backgroundPosition: "center",
             }}
-            className="w-screen h-[150vh] max-tabletS:h-[260vh] bg-[#1F1E24] overflow-hidden px-[10%] max-tabletM:px-[2%] border-2 border-red-500 relative"
+            className="w-screen h-[150vh] max-tabletS:h-[260vh] bg-[#1F1E24] overflow-hidden px-[10%] max-tabletM:px-[2%]  relative"
         >
             {/* Part 1 nav */}
             <nav className="h-[10vh] flex items-center gap-10 text-zinc-100">
@@ -70,7 +70,7 @@ const Moviedetails = () => {
                             ({info.detail.release_date.split("-")[0]})
                         </span>
                     </h1>
-                    <div className="flex items-center text-white gap-x-5 max-tabletM:justify-between max-tabletM:flex-wrap max-mobileM:mt-[10%]" >
+                    <div className="flex items-center text-white gap-x-5 max-tabletM:justify-between max-tabletM:flex-wrap max-mobileM:mt-[10%]">
                         <span className="text-white text-xl  h-[6vh] w-[6vh] bg-yellow-500 flex items-center justify-center rounded-full">
                             <h1>{(info.detail.vote_average * 10).toFixed()}</h1>
                             <sup>%</sup>
@@ -80,14 +80,18 @@ const Moviedetails = () => {
                         <h1 className="font-semibold">{info.detail.genres.map((g) => g.name).join()}</h1>
                         <h1 className="font-semibold">{info.detail.runtime}mins</h1>
                     </div>
-                    <h1 className="text-white text-2xl font-semibold mt-3 max-tabletM:text-xl">{info.detail.tagline}</h1>
+                    <h1 className="text-white text-2xl font-semibold mt-3 max-tabletM:text-xl">
+                        {info.detail.tagline}
+                    </h1>
 
                     <div className="text-white">
                         <h1 className="text-white text-3xl font-semibold mt-3 max-tabletM:text-2xl">Overview</h1>
                         <p className="max-tabletM:text-sm">{info.detail.overview}</p>
                     </div>
                     <div className="text-white">
-                        <h1 className="text-white text-3xl font-semibold mt-3 max-tabletM:text-2xl">Movie Translated</h1>
+                        <h1 className="text-white text-3xl font-semibold mt-3 max-tabletM:text-2xl">
+                            Movie Translated
+                        </h1>
                         <p className="mb-7 max-tabletM:text-sm">{info.translations.join(", ")}</p>
                         <Link to={`${pathname}/trailer`} className="bg-[#6556CD] px-7 py-3 rounded">
                             {" "}
@@ -98,7 +102,7 @@ const Moviedetails = () => {
             </div>
             {/* part 3 platforms*/}
 
-            <div className="w-[80%] bg-zinc-900">
+            <div className="w-[80%]">
                 <div className="flex flex-col gap-5 mt-8">
                     {info.watchProvider && info.watchProvider.flatrate && (
                         <div className="flex gap-x-10 items-center text-white">

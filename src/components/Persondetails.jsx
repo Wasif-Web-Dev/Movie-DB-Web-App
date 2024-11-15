@@ -140,7 +140,7 @@ const persondetails = () => {
                     <h1 className="text-xl text-zinc-400 f">{info.detail.also_known_as}</h1>
                 </div>
 
-                <div className="w-[80%] ml-[3%] max-tabletM:w-[95vw] max-tabletM:ml-0 border-2">
+                <div className="w-[80%] ml-[3%] max-tabletM:w-[95vw] max-tabletM:ml-0">
                     <h1 className=" text-5xl text-zinc-400 font-semibold my-5">{info.detail.name}</h1>
                     <h1 className=" text-xl text-zinc-400 font-semibold my-5">Biography</h1>
                     <div>
