@@ -1,22 +1,46 @@
 import {useGSAP} from "@gsap/react";
 import gsap from "gsap/gsap-core";
-import React from "react";
+import React, {useEffect} from "react";
 import {Link} from "react-router-dom";
 
 function Sidebar({sidebarOpen}) {
     useGSAP(() => {
-        gsap.set(".animate-stuff", {
-            x: -700,
-            opacity: 1,
-        });
-        gsap.to(".animate-stuff", {
-            x: 0,
-            opacity: 1,
-            duration: .8,
-            ease: "power2.Out",
-            stagger: 0.2,
-        });
+        if (window.innerWidth > 768) {
+            // Only run initial animation for desktop
+            gsap.set(".animate-stuff", {
+                x: -700,
+                opacity: 1,
+            });
+            gsap.to(".animate-stuff", {
+                x: 0,
+                opacity: 1,
+                duration: .8,
+                ease: "power2.Out", 
+                stagger: 0.2,
+            });
+        }
     });
+
+    useEffect(() => {
+        // Handle mobile animation when sidebar opens/closes
+        if (window.innerWidth <= 768) {
+            if (sidebarOpen) {
+                gsap.fromTo(".animate-stuff",
+                    {
+                        x: -700,
+                        opacity: 1
+                    },
+                    {
+                        x: 0,
+                        opacity: 1,
+                        duration: .8,
+                        ease: "power2.Out",
+                        stagger: 0.2
+                    }
+                );
+            }
+        }
+    }, [sidebarOpen]);
 
     return (
         <div
