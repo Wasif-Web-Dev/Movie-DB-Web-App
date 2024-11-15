@@ -91,7 +91,7 @@ const Moviedetails = () => {
                         <p className="mb-7 max-tabletM:text-sm">{info.translations.join(", ")}</p>
                         <Link to={`${pathname}/trailer`} className="bg-[#6556CD] px-7 py-3 rounded">
                             {" "}
-                            <i class="ri-play-fill"></i> Play Trailer
+                            <i className="ri-play-fill"></i> Play Trailer
                         </Link>
                     </div>
                 </div>

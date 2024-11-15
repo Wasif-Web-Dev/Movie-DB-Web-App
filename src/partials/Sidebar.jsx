@@ -14,8 +14,8 @@ function Sidebar({sidebarOpen}) {
             gsap.to(".animate-stuff", {
                 x: 0,
                 opacity: 1,
-                duration: .8,
-                ease: "power2.Out", 
+                duration: 0.8,
+                ease: "power2.Out",
                 stagger: 0.2,
             });
         }
@@ -25,17 +25,18 @@ function Sidebar({sidebarOpen}) {
         // Handle mobile animation when sidebar opens/closes
         if (window.innerWidth <= 768) {
             if (sidebarOpen) {
-                gsap.fromTo(".animate-stuff",
+                gsap.fromTo(
+                    ".animate-stuff",
                     {
                         x: -700,
-                        opacity: 1
+                        opacity: 1,
                     },
                     {
                         x: 0,
                         opacity: 1,
-                        duration: .8,
+                        duration: 0.8,
                         ease: "power2.Out",
-                        stagger: 0.2
+                        stagger: 0.2,
                     }
                 );
             }

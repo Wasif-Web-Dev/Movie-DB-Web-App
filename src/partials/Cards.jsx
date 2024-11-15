@@ -6,7 +6,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
-
+ 
 const Cards = ({data, title}) => {
     const cardsRef = useRef(null);
     

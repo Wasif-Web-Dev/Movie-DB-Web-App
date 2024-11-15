@@ -3,6 +3,7 @@ import {Link} from "react-router-dom";
 import noimage from "../../public/noimage.webp";
 import {useGSAP} from "@gsap/react";
 import gsap from "gsap";
+ 
 function HorizontalCards({data}) {
     const HcardsRef = useRef(null);
     const tl = new gsap.timeline();

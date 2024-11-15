@@ -98,7 +98,7 @@ const persondetails = () => {
                             }
                             className=" hover:text-[#6952ff] text-xl cursor-pointer"
                         >
-                            <i class="ri-facebook-fill"></i>
+                            <i className="ri-facebook-fill"></i>
                         </a>
                         <a
                             onClick={(e) => {
@@ -115,7 +115,7 @@ const persondetails = () => {
                             }
                             className=" hover:text-[#6952ff] text-xl cursor-pointer"
                         >
-                            <i class="ri-twitter-fill"></i>
+                            <i className="ri-twitter-fill"></i>
                         </a>
                     </div>
 

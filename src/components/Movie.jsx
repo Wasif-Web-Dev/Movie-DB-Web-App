@@ -20,7 +20,6 @@ function Movie() {
             const {data} = await axios.get(`/movie/${category}?page=${page}`);
 
             if (data.results.length > 0) {
-                // setMovie(data.results)
                 setmovie((prevState) => [...prevState, ...data.results]);
                 setPage(page + 1);
             } else {
