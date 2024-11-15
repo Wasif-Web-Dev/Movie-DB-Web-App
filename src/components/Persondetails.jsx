@@ -13,6 +13,11 @@ const persondetails = () => {
     const navigate = useNavigate();
     const {id} = useParams();
     const dispatch = useDispatch();
+    const [isExpanded, setIsExpanded] = useState(false);
+
+    const handleToggle = () => {
+        setIsExpanded(!isExpanded);
+    };
 
     useEffect(() => {
         dispatch(asyncLoadperson(id));
@@ -22,7 +27,7 @@ const persondetails = () => {
     }, [id]);
 
     return info ? (
-        <div className="px-[10%] h-[160vh] bg-[#1F1E24] w-screen">
+        <div className="px-[5%] h-[300vh] max-tabletM:h-[390vh]  max-tabletS:h-[420vh] max-mobileXL:h-[470vh]  max-mobileL:h-[500vh] max-mobileS:h-[550vh] bg-[#1F1E24] w-screen">
             {/* part 1 nav */}
             <nav className="h-[10vh] flex items-center gap-10 text-zinc-100">
                 <Link>
@@ -33,12 +38,12 @@ const persondetails = () => {
                     ></i>
                 </Link>
             </nav>
-            <div className="flex">
-                <div className="w-[20%] flex flex-col">
+            <div className="flex  max-tabletM:flex-col max-tabletM:items-center max-tabletM:justify-center">
+                <div className="w-[30%] flex flex-col max-tabletM:w-[90vw]">
                     {/* part 2 poster left*/}
 
                     <img
-                        className="h-[40vh] object-cover shadow-[8px_17px_38px_2px_rgba(0,0,0,.5)] rounded"
+                        className="h-[40vh] max-tabletM:h-[60vh]  object-cover shadow-[8px_17px_38px_2px_rgba(0,0,0,.5)] rounded"
                         src={`https://image.tmdb.org/t/p/original/${info.detail.profile_path}`}
                         alt=""
                     />
@@ -135,10 +140,41 @@ const persondetails = () => {
                     <h1 className="text-xl text-zinc-400 f">{info.detail.also_known_as}</h1>
                 </div>
 
-                <div className="w-[80%] ml-[8%]">
+                <div className="w-[80%] ml-[3%] max-tabletM:w-[95vw] max-tabletM:ml-0 border-2">
                     <h1 className=" text-5xl text-zinc-400 font-semibold my-5">{info.detail.name}</h1>
                     <h1 className=" text-xl text-zinc-400 font-semibold my-5">Biography</h1>
-                    <p className="text-zinc-500">{info.detail.biography}</p>
+                    <div>
+                        {/* Full text for desktop */}
+                        <p className="text-zinc-500 hidden md:block">{info.detail.biography}</p>
+
+                        {/* Truncated text for tablets */}
+                        <p className="text-zinc-500 block md:hidden">
+                            {isExpanded
+                                ? info.detail.biography
+                                : info.detail.biography.split(" ").slice(0, 50).join(" ")}
+                            {!isExpanded && (
+                                <span className="text-[#6556CD] cursor-pointer" onClick={handleToggle}>
+                                    ...more
+                                </span>
+                            )}
+                            {isExpanded && (
+                                <span className="text-[#6556CD] cursor-pointer" onClick={handleToggle}>
+                                    ...less
+                                </span>
+                            )}
+                        </p>
+                    </div>
+                    {/* <div>
+                        {/* Full text for desktop *
+                        <p className="text-zinc-500 hidden md:block">{info.detail.biography}</p>
+
+                        {/* Truncated text for tablets 
+                        <p className="text-zinc-500 block md:hidden">
+                            {info.detail.biography.split(" ").slice(0, 50).join(" ")}
+                            <span className="text-[#6556CD]">...more</span>
+                        </p>
+                    </div> */}
+
                     <h1 className=" text-xl text-zinc-400 font-semibold my-5">Known For</h1>
                     <HorizontalCards data={info.combinedCredits.cast} />
                     <div className="flex justify-between w-full">
@@ -150,7 +186,9 @@ const persondetails = () => {
                             <li className="text-zinc-400 hover:text-zinc-300 hover:bg-zinc-700 rounded mt-5 p-5 duration-300">
                                 <Link className="" key={i} to={`/${category}/details/${c.id}`}>
                                     <span> {c.original_title || c.name || c.original_name || c.title}</span>
-                                    <span className="ml-5 block mt-2">{c.character && `Character Name: ${c.character}`} </span>
+                                    <span className="ml-5 block mt-2">
+                                        {c.character && `Character Name: ${c.character}`}{" "}
+                                    </span>
                                 </Link>
                             </li>
                         ))}

@@ -28,7 +28,7 @@ const Moviedetails = () => {
                 backgroundRepeat: "no-repeat",
                 backgroundPosition: "center",
             }}
-            className="w-screen h-[150vh] max-tabletS:h-[260vh]  overflow-hidden px-[10%] max-tabletM:px-[2%] border-2 border-red-500 relative"
+            className="w-screen h-[150vh] max-tabletS:h-[260vh] bg-[#1F1E24] overflow-hidden px-[10%] max-tabletM:px-[2%] border-2 border-red-500 relative"
         >
             {/* Part 1 nav */}
             <nav className="h-[10vh] flex items-center gap-10 text-zinc-100">
@@ -98,7 +98,7 @@ const Moviedetails = () => {
             </div>
             {/* part 3 platforms*/}
 
-            <div className="w-[80%] ">
+            <div className="w-[80%] bg-zinc-900">
                 <div className="flex flex-col gap-5 mt-8">
                     {info.watchProvider && info.watchProvider.flatrate && (
                         <div className="flex gap-x-10 items-center text-white">
@@ -143,7 +143,7 @@ const Moviedetails = () => {
             </div>
 
             {/* part 4 recommendations and similars */}
-            <hr className="mt-10 mb-5 border-none h-[2px] bg-zinc-100" />
+            <hr className="mt-10 mb-5 border-none h-[2px] bg-zinc bg-zinc-900" />
             <h1 className="text-white font-black text-2xl">Recommendations And similar Stuff</h1>
             <HorizontalCards data={info.recommendations.length > 0 ? info.recommendations : info.similar} />
             <Outlet />
