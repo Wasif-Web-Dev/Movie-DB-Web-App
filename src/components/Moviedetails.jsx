@@ -25,10 +25,10 @@ const Moviedetails = () => {
             style={{
                 background: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://image.tmdb.org/t/p/original/${info.detail.backdrop_path})`,
                 backgroundSize: "cover",
-
+                backgroundRepeat: "no-repeat",
                 backgroundPosition: "center",
             }}
-            className="w-screen h-[150vh] px-[10%] relative"
+            className="w-screen h-[150vh] max-tabletS:h-[260vh]  overflow-hidden px-[10%] max-tabletM:px-[2%] border-2 border-red-500 relative"
         >
             {/* Part 1 nav */}
             <nav className="h-[10vh] flex items-center gap-10 text-zinc-100">
@@ -54,23 +54,23 @@ const Moviedetails = () => {
                 </a>
             </nav>
             {/* Part 2 image section */}
-            <div className="w-full flex">
+            <div className="w-full flex max-tabletS:flex-col  max-tabletS:px-[12%] max-mobileM:px-[3%]">
                 <img
-                    className="h-[60vh] object-cover shadow-[8px_17px_38px_2px_rgba(0,0,0,.5)] rounded"
+                    className="h-[60vh] max-tabletM:h-[80vh] max-tabletS:w-[90vh] object-cover shadow-[8px_17px_38px_2px_rgba(0,0,0,.5)] rounded max-tabletS:rounded-xl"
                     src={`https://image.tmdb.org/t/p/original/${info.detail.poster_path || info.detail.backdrop_path}`}
                     alt=""
                 />
-                <div className="content ml-[5%] ">
-                    <h1 className="text-5xl text-white font-black       ">
+                <div className="content ml-[5%] max-tabletM:ml-[1%] max-tabletS:mt-[10%]">
+                    <h1 className="text-5xl text-white font-black max-tabletM:text-3xl       ">
                         {info.detail.original_title ||
                             info.detail.name ||
                             info.detail.original_name ||
                             info.detail.title}
-                        <span className="text-2xl font-zinc-400 font-bold ">
+                        <span className="text-2xl font-zinc-400 font-bold max-tabletM:text-xl ">
                             ({info.detail.release_date.split("-")[0]})
                         </span>
                     </h1>
-                    <div className="flex items-center text-white gap-x-5">
+                    <div className="flex items-center text-white gap-x-5 max-tabletM:justify-between max-tabletM:flex-wrap max-mobileM:mt-[10%]" >
                         <span className="text-white text-xl  h-[6vh] w-[6vh] bg-yellow-500 flex items-center justify-center rounded-full">
                             <h1>{(info.detail.vote_average * 10).toFixed()}</h1>
                             <sup>%</sup>
@@ -80,15 +80,15 @@ const Moviedetails = () => {
                         <h1 className="font-semibold">{info.detail.genres.map((g) => g.name).join()}</h1>
                         <h1 className="font-semibold">{info.detail.runtime}mins</h1>
                     </div>
-                    <h1 className="text-white text-2xl font-semibold mt-3">{info.detail.tagline}</h1>
+                    <h1 className="text-white text-2xl font-semibold mt-3 max-tabletM:text-xl">{info.detail.tagline}</h1>
 
                     <div className="text-white">
-                        <h1 className="text-white text-3xl font-semibold mt-3">Overview</h1>
-                        <p className="">{info.detail.overview}</p>
+                        <h1 className="text-white text-3xl font-semibold mt-3 max-tabletM:text-2xl">Overview</h1>
+                        <p className="max-tabletM:text-sm">{info.detail.overview}</p>
                     </div>
                     <div className="text-white">
-                        <h1 className="text-white text-3xl font-semibold mt-3">Movie Translated</h1>
-                        <p className="mb-7">{info.translations.join(", ")}</p>
+                        <h1 className="text-white text-3xl font-semibold mt-3 max-tabletM:text-2xl">Movie Translated</h1>
+                        <p className="mb-7 max-tabletM:text-sm">{info.translations.join(", ")}</p>
                         <Link to={`${pathname}/trailer`} className="bg-[#6556CD] px-7 py-3 rounded">
                             {" "}
                             <i class="ri-play-fill"></i> Play Trailer
