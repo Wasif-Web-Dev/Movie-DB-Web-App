@@ -22,10 +22,10 @@ function HorizontalCards({data}) {
                 <Link
                     to={`/${d.media_type || "tv"}/details/${d.id}`}
                     key={i}
-                    className="overflow-y-auto max-md:min-w-[23%] rounded-xl max-[450px]:min-w-[35%] max-[380px]:min-w-[40%] max-[320px]:h-[45vh] max-md:h-[40vh] max-mobileL:h-[30vh] max-sm:min-w-[30%] min-w-[16%] h-[35vh] max-sm:mr-2  m-5 bg-zinc-900 mr-5 mb-5 shadow-md shadow-[rgba(0,0,0,0.9)]"
+                    className="overflow-y-auto max-md:min-w-[23%]  rounded-xl max-[450px]:min-w-[35%] max-[380px]:min-w-[40%] max-[320px]:h-[55vh max-md:h-[40vh] max-mobileL:h-[30vh] max-sm:min-w-[30%] min-w-[16%] h-[35vh] max-sm:mr-2 max-mobileL:m-2 m-5 bg-zinc-900 mr-5 mb-5 shadow-md shadow-[rgba(0,0,0,0.9)]"
                 >
                     <img
-                        className="w-full h-[40%] object-cover"
+                        className="w-full h-[60%] object-cover"
                         src={
                             d.backdrop_path || d.profile_path
                                 ? `https://image.tmdb.org/t/p/original/${d.backdrop_path || d.profile_path}`
@@ -33,12 +33,12 @@ function HorizontalCards({data}) {
                         }
                         alt=""
                     />
-                    <div className="h-[60%] p-2 text-white">
-                        <h1 className={"text-xl  font-semibold"}>
+                    <div className="h-[40%] p-2 text-white">
+                        <h1 className={"text-xl  font-black"}>
                             {d.original_title || d.name || d.original_name || d.title}
                         </h1>
                         <p className="mt-  w-full">
-                            {d.overview.slice(0, 30)}...<Link className="text-zinc-200">More</Link>
+                            {d.overview.slice(0, 60)}...<Link className="text-zinc-200 text-sm">More</Link>
                         </p>
                     </div>
                 </Link>

@@ -14,7 +14,6 @@ function Header({data, toggleSidebar}) {
         gsap.from(HeaderRef.current, {
             opacity: 0,
             duration: 3,
-            delay: 1,
         });
         tl.from(HeadingRef.current, {
             x: -300,
@@ -51,7 +50,7 @@ function Header({data, toggleSidebar}) {
         >
              <i
                 onClick={toggleSidebar}
-                class="ri-align-justify z-[46] text-3xl hidden max-md:block text-white fixed top-0 left-5 max-[425px]:left-2  max-[425px]:text-2xl  max-[375px]:left-0"
+                class="ri-align-justify z-[46] text-3xl hidden max-md:block text-white fixed top-5 max-mobileXL:top-1  left-5 max-[425px]:left-2  max-[425px]:text-2xl  max-[375px]:left-0"
             ></i>
             <h1 ref={HeadingRef} className={"text-5xl  font-semibold w-[70%]  text-white max-md:text-4xl max-md:w-[90%]"}>
                 {data.original_title || data.name || data.original_name || data.title}

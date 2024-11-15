@@ -11,7 +11,7 @@ const Moviedetails = () => {
     const navigate = useNavigate();
     const {id} = useParams();
     const dispatch = useDispatch();
-    console.log(info);
+    // console.log(info);
 
     useEffect(() => {
         dispatch(asyncLoadMovie(id));

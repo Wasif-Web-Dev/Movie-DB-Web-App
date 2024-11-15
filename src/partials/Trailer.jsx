@@ -9,7 +9,7 @@ const Trailer = () => {
     const {pathname} = useLocation();
     const category = pathname.includes("movie") ? "movie" : "tv";
     const ytVideo = useSelector((state) => state[category].info.videos);
-    console.log(ytVideo);
+    // console.log(ytVideo);
     return (
         <div
             // onClick={() => navigate(-1)}

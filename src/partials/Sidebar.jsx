@@ -6,13 +6,13 @@ import {Link} from "react-router-dom";
 function Sidebar({sidebarOpen}) {
     useGSAP(() => {
         gsap.set(".animate-stuff", {
-            x: -400,
+            x: -700,
             opacity: 1,
         });
         gsap.to(".animate-stuff", {
             x: 0,
             opacity: 1,
-            duration: 1,
+            duration: .8,
             ease: "power2.Out",
             stagger: 0.2,
         });
